@@ -2,7 +2,9 @@ const express = require('express');
 const app = express();
 const DaataStore = require('nedb');
 const { request } = require('express');
-app.listen(3000,()=>console.log('the port is open and listen '));
+
+const port = process.env.PORT || 3000;
+app.listen(port,()=>console.log(`the port is open and listen port ${port}`));
 app.use(express.static('public')); 
 app.use(express.json({  limit: '1mb'  }));
 const Database = new DaataStore('Database.db');
